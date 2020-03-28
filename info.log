@@ -3,3 +3,5 @@
 {"message":"no title","level":"error"}
 {"message":"no title","level":"error"}
 {"message":"no title","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/testID","level":"error"}
+{"message":"no matching id found within bookmarks","level":"error"}

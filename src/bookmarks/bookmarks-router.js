@@ -58,5 +58,27 @@ bookmarksRouter
       .json({ id });
   });
 
+bookmarksRouter
+  .route('/bookmarks/:id')
+  .delete((req, res) => {
+    const { id } = req.params;
+    
+    //validate id matches an existing bookmark
+    const index = bookmarks.findIndex(bookmark => bookmark.id === id);
+
+    if (index === -1) {
+      logger.error('no matching id found within bookmarks');
+      res
+        .status(404)
+        .send('no matching id found within bookmarks');
+    }
+
+    //delete bookmark with matching id from bookmarks
+    bookmarks.splice(index, 1);
+
+    res
+      .status(204)
+      .end();
+  });
 
 module.exports = bookmarksRouter;
