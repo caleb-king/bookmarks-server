@@ -7,3 +7,4 @@
 {"message":"no matching id found within bookmarks","level":"error"}
 {"message":"no bookmark matches given id","level":"error"}
 {"message":"no matching id found within bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /","level":"error"}
