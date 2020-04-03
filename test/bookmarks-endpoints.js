@@ -4,7 +4,7 @@ const knex = require('knex');
 const app = require('../src/app');
 const { makeBookmarksArray } = require('./bookmarks.fixtures');
 
-describe('Bookmarks Endpoints') {
+describe('Bookmarks Endpoints', () => {
   let db;
   
   before('make knex instance', () => {
@@ -13,7 +13,7 @@ describe('Bookmarks Endpoints') {
       connection: process.env.TEST_DB_URL
     });
     app.set('db', db);
-  })
+  });
 
   after('disconnect from db', () => db.destroy);
 
@@ -26,9 +26,9 @@ describe('Bookmarks Endpoints') {
       it('responds with 200 and an empty list', () => {
         return supertest(app)
           .get('/bookmarks')
-          .expect(200, [])
-      })
-    })
+          .expect(200, []);
+      });
+    });
     context('Given there are bookmarks in the database', () => {
       const testBookmarks = makeBookmarksArray();
       
@@ -41,10 +41,10 @@ describe('Bookmarks Endpoints') {
       it('responds with 200 and all of the bookmarks', () => {
         return supertest(app)
           .get('/bookmarks')
-          .expect(200, testBookmarks)
-      })
-    })
-  })
+          .expect(200, testBookmarks);
+      });
+    });
+  });
 
   describe('GET /bookmarks/:bookmark_id', () => {
     context('Given no bookmarks', () => {
@@ -52,9 +52,9 @@ describe('Bookmarks Endpoints') {
         const bookmarkId = 5;
         return supertest(app)
           .get(`/bookmarks/${bookmarkId}`)
-          .expect(404, { error: { message: 'Bookmark doesn\'t exist' } })
-      })
-    })
+          .expect(404, { error: { message: 'Bookmark doesn\'t exist' } });
+      });
+    });
     context('Given there are bookmarks in the database', () => {
       const testBookmarks = makeBookmarksArray();
 
@@ -70,8 +70,8 @@ describe('Bookmarks Endpoints') {
         return supertest(app)
           .get(`/bookmarks/${bookmarkId}`)
           .expect(expectedBookmark);
-      })
-    })
-  })
+      });
+    });
+  });
 
-}
+});
