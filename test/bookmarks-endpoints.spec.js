@@ -15,11 +15,11 @@ describe('Bookmarks Endpoints', () => {
     app.set('db', db);
   });
 
-  after('disconnect from db', () => db.destroy);
+  after('disconnect from db', () => db.destroy());
 
-  before('clean the table', () => db('bookmarks').truncate);
+  before('clean the table', () => db('bookmarks').truncate());
 
-  afterEach('cleanup', () => db('bookmarks').truncate);
+  afterEach('cleanup', () => db('bookmarks').truncate());
 
   describe('GET /bookmarks', () => {
     context('Given no bookmarks', () => {
