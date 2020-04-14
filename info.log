@@ -8,3 +8,38 @@
 {"message":"no bookmark matches given id","level":"error"}
 {"message":"no matching id found within bookmarks","level":"error"}
 {"message":"Unauthorized request to path: /","level":"error"}
+{"message":"no desc","level":"error"}
+{"message":"no desc","level":"error"}
+{"message":"no title","level":"error"}
+{"message":"no url","level":"error"}
+{"message":"no desc","level":"error"}
+{"message":"no rating","level":"error"}
+{"message":"no title","level":"error"}
+{"message":"no url","level":"error"}
+{"message":"no desc","level":"error"}
+{"message":"no rating","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
+{"message":"Invalid rating 'invalid' supplied","level":"error"}
+{"message":"Invalid url 'invalid' supplied","level":"error"}
