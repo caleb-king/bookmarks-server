@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const xss = require('xss');
 const { isWebUri } = require('valid-url');
@@ -16,7 +17,7 @@ const serializeBookmark = bookmark => ({
 });
 
 bookmarksRouter
-  .route('/bookmarks')
+  .route('/api/bookmarks')
   .get((req, res, next) => {
     const knexInstance = req.app.get('db');
     BookmarksService.getAllBookmarks(knexInstance)
@@ -61,14 +62,14 @@ bookmarksRouter
       .then(bookmark => {
         res
           .status(201)
-          .location(`/bookmarks/${bookmark.id}`)
+          .location(path.posix.join(req.originalUrl, `/${bookmark.id}`))
           .json(serializeBookmark(bookmark));
       })
       .catch(next);
   });
 
 bookmarksRouter
-  .route('/bookmarks/:id')
+  .route('/api/bookmarks/:id')
   .all((req, res, next) => {
     BookmarksService.getById(
       req.app.get('db'),
@@ -80,7 +81,7 @@ bookmarksRouter
             error: { message: 'Bookmark doesn\'t exist' }
           });
         }
-        res.bookmark = bookmark; // save the article for the next middleware
+        res.bookmark = bookmark; // save the bookmark for the next middleware
         next(); // don't forget to call next so the next middleware happens!
       })
       .catch(next);
@@ -105,6 +106,30 @@ bookmarksRouter
       req.params.id
     )
       .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
+  })
+  .patch(bodyParser, (req, res, next) => {
+    const { title, url, description, rating } = req.body;
+    const bookmarkToUpdate = { title, url, description, rating };
+
+    const numberOfValues = Object.values(bookmarkToUpdate).filter(Boolean).length;
+    if(numberOfValues === 0) {
+      res
+        .status(400).json({
+          error: {
+            message: `Request body must contain either 'title', 'style' or 'content'` 
+          }
+        });
+    }
+    
+    BookmarksService.updateBookmark(
+      req.app.get('db'),
+      req.params.id,
+      bookmarkToUpdate
+    )
+      .then(numRowsAffected => {
         res.status(204).end();
       })
       .catch(next);
